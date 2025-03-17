@@ -5,14 +5,18 @@ import ReactDOM from 'react-dom/client'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap"
 
-// index.css'
-import '../styles/index.css'
-
 // components
 import Home from './components/Home';
+import SecondsCounter from './components/secoundscounter/SecoundsCounter';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+
+let counter = 0;//variable
+
+const renderCounter = () => {
+    ReactDOM.createRoot(document.getElementById('root')).render(
+      <SecondsCounter seconds={counter} />
+    );
+    counter++;
+  };
+  
+  setInterval(renderCounter, 1000);
